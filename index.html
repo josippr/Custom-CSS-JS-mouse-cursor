@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Cursor</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="icon.png">
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow&family=Montserrat&family=Open+Sans&family=Playfair+Display&family=Poppins&family=Raleway&family=Ubuntu&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <h1>Custom cursor with CSS & Javascript</h1>
+    <!-- cursor -->
+    <div class="cursor"></div>
+    <main>
+        <div class="main-wrapper">
+            <section>
+                <div class="title" style="color: orange;">HTML5</div>
+                <code class="code">
+                    <p><p class="tagH">&lt;!DOCTYPE html&gt;</p>
+                    <p class="tagH">&lt;html lang="en"&gt;</p>
+                        
+                        <p class="tagH">&lt;head&gt;</p>
+                            &lt;meta charset="UTF-8"&gt;<br>
+                            &lt;meta http-equiv="X-UA-Compatible" content="IE=edge"&gt;<br>
+                            &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;<br>
+                            &lt;title&gt;Document&lt;/title&gt;<br>
+                        <p class="tagH">&lt;/head&gt;</p>
+                        
+                        <p class="tagH">&lt;body&gt;</p>
+                            &lt;div class="cursor"&gt;&lt;/div&gt;<br>
+                        
+                            <p class="tagH">&lt;/body&gt;</p>
+                        
+                        &lt;/html&gt;</p><br>
+                </code>
+            </section>
+            <section>
+                <div class="title" style="color: lightskyblue;">CSS3</div>
+                <code class="code">
+                    <p class="tag">body</p> {<br>
+                        margin: 0;<br>
+                        height: 100vh;<br>
+                        cursor: none;<br>
+                        background-color: #111;<br>
+                        
+                        color: white;<br>
+                    }<br>
+                    
+                    <p class="tag">h1</p> {<br>
+                        text-align: center;<br>
+                        padding-top: 200px;<br>
+                        font-size: 30px;<br>
+                    }<br>
+                    <br>
+                    <p class="tag">.cursor</p> {<br>
+                        width: 40px;<br>
+                        height: 40px;<br>
+                        border: 1px solid white;<br>
+                        border-radius: 50%;<br>
+                        position: absolute;<br>
+                        <p class="comment">/* add transition for "laggy" effect */</p>
+                        transition-duration: 100ms;<br>
+                        transition-timing-function: ease-out;<br>
+                    }<br>
+                    <br>
+                    <p class="tag">.expand</p> {<br>
+                        animation: expandOnClick .5s forwards;<br>
+                        border: 1px solid gray;<br>
+                    }<br>
+                    <br>
+                    <p class="tag">@keyframes</p> expandOnClick {<br>
+                        0% {<br>
+                            transform: scale(1);<br>
+                        }<br>
+                        50% {<br>
+                            transform: scale(2);<br>
+                        }<br>
+                        100% {<br>
+                            transform: scale(1);<br>
+                            opacity: 0;<br>
+                        }<br>
+                    }<br>
+                </code>
+
+
+            </section>
+            <section>
+                <div class="title" style="color: yellow;">Javascript</div>
+                <code class="code"><br>
+                    const cursor = document.querySelector('.cursor');<br>
+                    <br>
+                    document.addEventListener('mousemove', e => {<br>
+                    cursor.setAttribute("style", "top: " + (e.pageY - 10) + "px; left: " + (e.pageX - 10) + "px;")<br>
+                    })<br>
+                    <br>
+                    document.addEventListener('click', () => {<br>
+                        cursor.classList.add("expand");<br>
+                        <br>
+                    setTimeout(() => {<br>
+                        cursor.classList.remove("expand");<br>
+                    }, 500)<br>
+                })<br>
+                </code>
+            </section>
+        </div>
+    </main>
+    <footer>
+        <div class="footer-wrapper">
+            <hr class="ft-line">
+            <h2>Codepen by: <a href="#">Josip Prpić</a></h2>
+            <div class="iconbar">
+                <a href="https://codepen.io/josippr"><i class="fa-brands fa-codepen" id="i-link"></i></a>
+                <a href="https://github.com/josippr"><i class="fa-brands fa-github" id="i-link"></i></a>
+                <a href="https://twitter.com/PrpicJosip"><i class="fa-brands fa-twitter" id="i-link"></i></a>
+            </div>
+        </div>
+
+    </footer>
+
+    <script type="text/javascript" src="cursor.js"></script>
+    <script src="https://kit.fontawesome.com/ecbdcc5fc9.js" crossorigin="anonymous"></script>
+</body>
+
+</html>
